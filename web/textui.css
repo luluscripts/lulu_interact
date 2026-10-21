@@ -1,0 +1,240 @@
+/* lulu design system — Soft · Premium · Minimal · Developer. Dark tokens. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap");
+
+:root {
+    font-size: 1vh;
+    --lulu-surface-100: #1E1B24;
+    --lulu-surface-200: #272230;
+    --lulu-ink: #F7F0F4;
+    --lulu-ink-muted: #B7ABC0;
+    --lulu-border: #34303D;
+    --lulu-border-strong: #4C4558;
+    --lulu-pink: #FF6FAE;
+    --lulu-pink-text: #FF8FC0;
+    --lulu-pink-soft: #33202B;
+    --lulu-shadow-soft: 0 1px 2px rgba(0,0,0,.5), 0 10px 28px rgba(0,0,0,.45);
+    --lulu-shadow-glow-pink: 0 0 0 1px rgba(255,111,174,.4), 0 20px 48px rgba(255,111,174,.32);
+    --lulu-font-sans: 'Inter', system-ui, sans-serif;
+    --lulu-font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --lulu-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--lulu-font-sans);
+    background: transparent;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+#textui-container {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.textui-item { display: flex; align-items: center; gap: 0.8rem; }
+
+/* ---- enter animations (staggered) ---- */
+.textui-item:nth-child(1) .textui-button {
+    animation: buttonAppear 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.textui-item:nth-child(1) .textui-text {
+    animation: textSlideIn 400ms cubic-bezier(0.4, 0, 0.2, 1) 150ms forwards;
+}
+
+.textui-item:nth-child(2) .textui-button {
+    animation: buttonAppear 300ms cubic-bezier(0.4, 0, 0.2, 1) 100ms forwards;
+}
+
+.textui-item:nth-child(2) .textui-text {
+    animation: textSlideIn 400ms cubic-bezier(0.4, 0, 0.2, 1) 250ms forwards;
+}
+
+.textui-item:nth-child(3) .textui-button {
+    animation: buttonAppear 300ms cubic-bezier(0.4, 0, 0.2, 1) 200ms forwards;
+}
+
+.textui-item:nth-child(3) .textui-text {
+    animation: textSlideIn 400ms cubic-bezier(0.4, 0, 0.2, 1) 350ms forwards;
+}
+
+.textui-item:nth-child(4) .textui-button {
+    animation: buttonAppear 300ms cubic-bezier(0.4, 0, 0.2, 1) 300ms forwards;
+}
+
+.textui-item:nth-child(4) .textui-text {
+    animation: textSlideIn 400ms cubic-bezier(0.4, 0, 0.2, 1) 450ms forwards;
+}
+
+.textui-item:nth-child(5) .textui-button {
+    animation: buttonAppear 300ms cubic-bezier(0.4, 0, 0.2, 1) 400ms forwards;
+}
+
+.textui-item:nth-child(5) .textui-text {
+    animation: textSlideIn 400ms cubic-bezier(0.4, 0, 0.2, 1) 550ms forwards;
+}
+
+@keyframes buttonAppear {
+    0% {
+        opacity: 0;
+        transform: translateX(80px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+@keyframes textSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ---- key chip ---- */
+.textui-button {
+    position: relative;
+    width: 4.4rem;
+    height: 4.4rem;
+    background: var(--lulu-surface-100);
+    border: 1px solid var(--lulu-border-strong);
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--lulu-shadow-soft);
+    opacity: 0;
+    transform: translateX(80px) scale(0.9);
+}
+
+.textui-button-inner, .textui-text-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textui-key {
+    font-family: var(--lulu-font-mono);
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: var(--lulu-pink-text);
+}
+
+/* ---- label card ---- */
+.textui-text {
+    position: relative;
+    min-width: 12rem;
+    height: 4.4rem;
+    background: var(--lulu-surface-100);
+    border: 1px solid var(--lulu-border);
+    border-radius: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--lulu-shadow-soft);
+    opacity: 0;
+    transform: translateX(80px);
+}
+
+.textui-text-inner { padding: 0 1.8rem; }
+
+.textui-label {
+    font-family: var(--lulu-font-sans);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--lulu-ink);
+    letter-spacing: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.textui-label i, .textui-text i { color: var(--lulu-pink-text) !important; }
+
+.textui-item:hover .textui-button { border-color: var(--lulu-pink); box-shadow: var(--lulu-shadow-glow-pink); }
+.textui-item:hover .textui-text { border-color: var(--lulu-border-strong); }
+
+/* ---- leave animations ---- */
+body.hiding .textui-item:nth-child(1) .textui-text {
+    animation: textSlideOut 300ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+body.hiding .textui-item:nth-child(1) .textui-button {
+    animation: buttonDisappear 250ms cubic-bezier(0.4, 0, 0.2, 1) 150ms forwards;
+}
+
+body.hiding .textui-item:nth-child(2) .textui-text {
+    animation: textSlideOut 300ms cubic-bezier(0.4, 0, 0.2, 1) 50ms forwards;
+}
+
+body.hiding .textui-item:nth-child(2) .textui-button {
+    animation: buttonDisappear 250ms cubic-bezier(0.4, 0, 0.2, 1) 200ms forwards;
+}
+
+body.hiding .textui-item:nth-child(3) .textui-text {
+    animation: textSlideOut 300ms cubic-bezier(0.4, 0, 0.2, 1) 100ms forwards;
+}
+
+body.hiding .textui-item:nth-child(3) .textui-button {
+    animation: buttonDisappear 250ms cubic-bezier(0.4, 0, 0.2, 1) 250ms forwards;
+}
+
+body.hiding .textui-item:nth-child(4) .textui-text {
+    animation: textSlideOut 300ms cubic-bezier(0.4, 0, 0.2, 1) 150ms forwards;
+}
+
+body.hiding .textui-item:nth-child(4) .textui-button {
+    animation: buttonDisappear 250ms cubic-bezier(0.4, 0, 0.2, 1) 300ms forwards;
+}
+
+body.hiding .textui-item:nth-child(5) .textui-text {
+    animation: textSlideOut 300ms cubic-bezier(0.4, 0, 0.2, 1) 200ms forwards;
+}
+
+body.hiding .textui-item:nth-child(5) .textui-button {
+    animation: buttonDisappear 250ms cubic-bezier(0.4, 0, 0.2, 1) 350ms forwards;
+}
+
+@keyframes textSlideOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+}
+
+@keyframes buttonDisappear {
+    0% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0.9) translateX(80px);
+    }
+}
